@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++14 -g  -rdynamic CMakeFiles/superResolution.dir/src/main.cpp.o CMakeFiles/superResolution.dir/src/neuron.cpp.o  -o superResolution 

@@ -1,3 +1,0 @@
-/home/ioneliab/CLionProjects/superResolution/CMakeFiles/rebuild_cache.dir
-/home/ioneliab/CLionProjects/superResolution/CMakeFiles/superResolution.dir
-/home/ioneliab/CLionProjects/superResolution/CMakeFiles/edit_cache.dir

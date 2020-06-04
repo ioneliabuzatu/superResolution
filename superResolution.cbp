@@ -66,7 +66,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/ioneliab/CLionProjects/superResolution/src/layer.cpp">
+			<Option target="superResolution"/>
+		</Unit>
 		<Unit filename="/home/ioneliab/CLionProjects/superResolution/src/main.cpp">
+			<Option target="superResolution"/>
+		</Unit>
+		<Unit filename="/home/ioneliab/CLionProjects/superResolution/src/matrix.cpp">
 			<Option target="superResolution"/>
 		</Unit>
 		<Unit filename="/home/ioneliab/CLionProjects/superResolution/src/neuron.cpp">

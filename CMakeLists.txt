@@ -8,4 +8,6 @@ add_executable(
         superResolution
         src/main.cpp
         src/neuron.cpp
+        src/layer.cpp
+        src/matrix.cpp
 )
