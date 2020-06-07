@@ -14,12 +14,12 @@ public:
 
     double random_numbers_generator();
 
-    int set_value(int row_index, int col_index, double insert_value) {
+    void set_value(int row_index, int col_index, double insert_value) {
         this->values.at(row_index).at(col_index) = insert_value;
     }
 
     double get_value(int row_index, int col_index) {
-        this->values.at(row_index).at(col_index);
+        return this->values.at(row_index).at(col_index);
     }
 
     void print_matrix_to_stdout();
