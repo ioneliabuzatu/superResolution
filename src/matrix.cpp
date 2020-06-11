@@ -17,7 +17,11 @@ Matrix *Matrix::transpose_matrix() {
 
 
 double Matrix::random_numbers_generator() {
-    return (double) rand() / RAND_MAX;
+//    return (double) rand() / RAND_MAX;
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_real_distribution<> dis(-.01, .01);
+    return dis(gen);
 }
 
 

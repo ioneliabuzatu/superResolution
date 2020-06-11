@@ -51,11 +51,14 @@ void FC::print_model_to_stdout() {
         if (layer_ == 0) {
             Matrix *matrix_ = this->layers.at(layer_)->flatten_matrix_values();
             matrix_->print_matrix_to_stdout();
-            cout << "↓" << endl;
         } else {
             Matrix *matrix_ = this->layers.at(layer_)->flatten_matrix_activated_values();
             matrix_->print_matrix_to_stdout();
-            cout << "↓" << endl;
+        }
+        if(layer_<this->layers.size()-1) {
+            cout << "\n--- Weight matrix ---" << endl;
+            this->get_weighted_matrices(layer_)->print_matrix_to_stdout();
+            cout << endl;
         }
     }
 }
