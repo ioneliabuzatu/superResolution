@@ -34,12 +34,17 @@ int main(int argc, char **argv) {
 
     FC *model = new FC(architecture);
     model->set_input(dummy_input);
-    model->print_model_to_stdout();
+    model->set_target(dummy_input);
     model->feed_forward_move();
+    model->set_errors();
 
     cout << "\n----- Model after first forward pass -------" << endl;
     model->print_model_to_stdout();
-
+    cout << "Total Error: " << model->get_total_error() << endl;
+    for(int error = 0;error<model->get_errors().size();error++) {
+        cout << "Errors: " << model->get_errors().at(error) << " ";
+    }
+    cout << endl;
 
     return 0;
 }

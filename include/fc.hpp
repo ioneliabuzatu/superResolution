@@ -14,8 +14,13 @@ public:
     FC(vector<int> architecture);
 
     void set_input(vector<double> input);
+    void set_target(vector<double> target_) {this->target=target_;};
+
     void feed_forward_move();
+
     void print_model_to_stdout();
+
+    void set_errors();
 
     Matrix *get_matrix(int index_) { return this->layers.at(index_)->flatten_matrix_values(); };
 
@@ -29,6 +34,10 @@ public:
         this->layers.at(layer_index)->set_value(neuron_index, value);
     };
 
+    double get_total_error() { return this->total_error; };
+
+    vector<double> get_errors() { return this->errors; };
+
 private:
 
     vector<int> architecture;
@@ -36,6 +45,11 @@ private:
     vector<Layer *> layers;
     vector<Matrix *> weighted_matrices;
     vector<double> input;
+    vector<double> target;
+    double total_error;
+    vector<double> errors;
+    vector<double> errors_history;
+
 };
 
 

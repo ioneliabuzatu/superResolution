@@ -4,6 +4,28 @@
 #include "../include/fc.hpp"
 #include <vector>
 
+void FC::set_errors() {
+    if (this->target.size() == 0) {
+        cerr << "No targets" << endl;
+        assert(false);
+    }
+    if (this->target.size() != this->layers.at(this->layers.size() - 1)->get_neurons().size()) {
+        cerr << "Target size is not has the last layer size" << endl;
+        assert(false);
+    }
+
+    this->total_error = 0.0;
+    int output_layer_index = this->layers.size() - 1;
+    vector<Neuron *> output_neurons = this->layers.at(output_layer_index)->get_neurons();
+    for (int neuron_unit = 0; neuron_unit < target.size(); neuron_unit++) {
+        double cost_function_error = (output_neurons.at(neuron_unit)->get_activated_value() - target.at(neuron_unit));
+        this->total_error += cost_function_error;
+        errors.push_back(cost_function_error);
+    }
+    errors_history.push_back(this->total_error);
+}
+
+
 void FC::feed_forward_move() {
     for (int layer_ = 0; layer_ < this->layers.size() - 1; layer_++) {
         Matrix *matrix_a = this->get_matrix(layer_);
@@ -55,7 +77,7 @@ void FC::print_model_to_stdout() {
             Matrix *matrix_ = this->layers.at(layer_)->flatten_matrix_activated_values();
             matrix_->print_matrix_to_stdout();
         }
-        if(layer_<this->layers.size()-1) {
+        if (layer_ < this->layers.size() - 1) {
             cout << "\n--- Weight matrix ---" << endl;
             this->get_weighted_matrices(layer_)->print_matrix_to_stdout();
             cout << endl;
